@@ -3,13 +3,14 @@ package rubiks.gui;
 import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Panel;
 
 import javax.swing.JFrame;
 
 public class Display {
 	private JFrame frame;
 	private Canvas canvas;
-	
+
 	private String title;
 	private int width, height;
 	
@@ -38,6 +39,7 @@ public class Display {
 		frame.add(canvas);
 		frame.pack();
 	}
+	
 	public Canvas getCanves() {
 		return canvas;
 	}

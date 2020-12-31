@@ -1,14 +1,10 @@
 package rubiks.io;
 
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
-
-import rubiks.gameboard.Tile;
 
 public class EventListener implements KeyListener, MouseListener, MouseMotionListener {
 	private static boolean[] keys = new boolean[256];
@@ -26,7 +22,7 @@ public class EventListener implements KeyListener, MouseListener, MouseMotionLis
 		}
 		
 		int distance = (int) Math.sqrt(Math.pow(mousePressX - mouseDragX,2) + Math.pow(mousePressY - mouseDragY,2));
-		distanceToReach = 35;
+		distanceToReach = 28;
 		if(distance > distanceToReach) {
 			int xDis = mousePressX - mouseDragX;
 			int yDis = mousePressY - mouseDragY;
@@ -34,22 +30,18 @@ public class EventListener implements KeyListener, MouseListener, MouseMotionLis
 			
 			if(xDis < -disToReach) {
 				//Right
-				resetMouse();
 				return "right";
 			}
 			if(xDis > disToReach) {
 				//left
-				resetMouse();
 				return "left";
 			}
 			if(yDis < -disToReach) {
 				//down
-				resetMouse();
 				return "down";
 			}
 			if(yDis > disToReach) {
 				//up
-				resetMouse();
 				return "up";
 			}
 			return null;
@@ -63,17 +55,11 @@ public class EventListener implements KeyListener, MouseListener, MouseMotionLis
 		mouseDragY = null;
 	}
 	
-	public Integer getCircleX() {
+	public Integer getMouseX() {
 		return mousePressX;
 	}
-	public Integer getCircleY() {
+	public Integer getMouseY() {
 		return mousePressY;
-	}
-	public Integer getDragCircleX() {
-		return mouseDragX;
-	}
-	public Integer getDragCircleY() {
-		return mouseDragY;
 	}
 	
 	public Integer getDistanceRadius() {
